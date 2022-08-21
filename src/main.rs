@@ -33,12 +33,68 @@ fn main() {
     println!("MAX_POINTS just in main visability! {}", MAX_POINTS);
     const MAX_POINTS: u32 = 100_000;
     print();
+
     whiles(3, false);
+
+    //ownership
+    let mut s = String::from("hello");
+    let s1 = s.clone();
+    println!("{}", s);
+    println!("{}", s1);
+
+    s.push_str(", world!");
+    println!("{}", s);
+    println!("{}", s1);
+
+    takes_ownership(s1);
+    // println!("{}", s1); // don't work because s1 borowed for fn takes_ownership
+
+    let (s2, len) = calculate_length(&mut give());
+    let param = (&s2, &len);
+    println!("{}, {}, {:?}, {:?}", s2, len, calculate_length(&mut give()), param);
+
+    // can not use &mut for two or more different param 
+    // let mut s11 = String::from("String");
+    // let s12 = &mut s11;
+    // let s13 = &mut s11;
+    // println!("{}", s12);
+    // println!("{}", s13);
+
+    // but might to use it in different visabilities
+    let mut s11 = String::from("String");
+    {
+        let s12 = &mut s11;
+        println!("{}", s12);
+    }
+    {
+        let s13 = &mut s11;
+        println!("{}", s13);
+    }
+    // в одной области видимости много неизменяемых ссылок и только одна неизменяемая
+    // все ссылки должны быть действительны
+
+    let mut string = String::from("hello world");
+    let index = {
+        last_byte_of_first_word(&string) + 1
+    };
+    println!("{}, {}", index, &string[..index + 2]);
+    string.clear();
+
+    let string = String::from("hello world");
+    let hello = &string[0..5];
+    let world = &string[6..11];
+    let hey = &string[..8];
+    let heyy = &string[4..];
+    let heyyy = &string[..];
+    println!("{}, {}, {}, {}, {}", hello, world, hey, heyy, heyyy);
+    
 }
 
 fn print() {
     println!("MAX_POINTS just out of main visability! {}", MAX_POINTS);
 }
+
+const MAX_POINTS: u32 = 200_000;
 
 fn five() -> u8 {
     5
@@ -79,9 +135,44 @@ fn whiles(x: u32, y: bool) -> u32 {
     for element in a.iter() {
         println!("the value is {}", element);
     }
+
+    for z in (1..8).rev() {
+        println!("{}", z);
+    }
     println!("    STOPED");
 
     counter
 }
 
-const MAX_POINTS: u32 = 200_000;
+fn takes_ownership(some_string: String) {
+    println!("{}", some_string);
+}
+
+fn calculate_length(s: &mut String) -> (String, usize) {
+    s.push_str(" string");
+    let length = s.len();
+
+    (s.to_string(), length)
+}
+
+fn give() -> String {
+    let word = String::from("Hello world");
+
+    word
+}
+
+fn last_byte_of_first_word(s: &String) -> usize{
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return i - 1;
+        }
+    }
+
+    s.len()
+}
+
+// fn first_word(s: &str) -> &str {
+
+// }
