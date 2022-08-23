@@ -121,7 +121,7 @@ fn main() {
         ..user2 // adding with last param from user2
     };
 
-    // println!("{}, {}, {}, {}", user3.email, user3.username, user3.active, user3.sign_in_count);
+    println!("{}, {}, {}, {}", user3.email, user3.username, user3.active, user3.sign_in_count);
     
 }
 
