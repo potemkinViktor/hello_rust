@@ -1,6 +1,6 @@
 // loop - infinity (break;) or end programm
 // for - more fast and safety (more useful)
-// while - 
+// while - just 
 
 fn main() {
     // let mut x = 5;
