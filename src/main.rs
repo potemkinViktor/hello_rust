@@ -1,6 +1,6 @@
 // loop - infinity (break;) or end programm.
 // for - more fast and safety (more useful).
-// while - just for allot iterations.
+// while - just for allot iterations
 
 fn main() {
     // let mut x = 5;
