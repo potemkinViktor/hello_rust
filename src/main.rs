@@ -132,6 +132,9 @@ fn main() {
 
     let black = Color(0, 0, 0);
     let origin = Point(0, 0 , 0);
+
+    println!("{}, {}, {}", black.0, black.1, black.2);
+    println!("{}, {}, {}", origin.0, origin.1, origin.2);
     
 }
 
