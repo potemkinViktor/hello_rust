@@ -149,6 +149,8 @@ fn main() {
         area_v2(&rect1)
     );
 
+    println!("{}", rect1.multiply());
+
 }
 
 struct Color(i32, i32, i32);
@@ -157,6 +159,12 @@ struct Point(i32, i32, i32);
 struct Rectangle{
     length: u32,
     width: u32,
+}
+
+impl Rectangle{
+    fn multiply(&self) -> u32{
+        self.length * self.width
+    }
 }
 
 fn print() {
