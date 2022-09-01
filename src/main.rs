@@ -2,6 +2,10 @@
 // for - more fast and safety (more useful)
 // while - 
 
+
+
+
+// 8.09 smart contract near
 fn main() {
     // let mut x = 5;
     // println!("Hello, world! {}", x);
@@ -97,6 +101,9 @@ fn main() {
     let word = first_word(my_string_literal);
     println!("{}", word);
 
+    let srez = "Hello world"; // срез - всегда неизменяемая ссылка
+    println!("{}", srez);
+
     let user1 = User {
         username: String::from("potemkinViktor"),
         email: String::from("vapotemkin@gmail.com"),
@@ -122,8 +129,14 @@ fn main() {
     };
 
     println!("{}, {}, {}, {}", user3.email, user3.username, user3.active, user3.sign_in_count);
+
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0 , 0);
     
 }
+
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
 
 fn print() {
     println!("MAX_POINTS just out of main visability! {}", MAX_POINTS);
