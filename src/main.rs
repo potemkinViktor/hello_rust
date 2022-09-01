@@ -136,10 +136,28 @@ fn main() {
     println!("{}, {}, {}", black.0, black.1, black.2);
     println!("{}, {}, {}", origin.0, origin.1, origin.2);
     
+    let rect = (50, 30);
+    println!(
+        "{}",
+        area(rect)
+    );
+
+    let rect1 = Rectangle{length: 50, width: 30};
+
+    println!(
+        "{:?}",
+        area_v2(&rect1)
+    );
+
 }
 
 struct Color(i32, i32, i32);
 struct Point(i32, i32, i32);
+
+struct Rectangle{
+    length: u32,
+    width: u32,
+}
 
 fn print() {
     println!("MAX_POINTS just out of main visability! {}", MAX_POINTS);
@@ -251,3 +269,10 @@ fn add_new_user(email: String, username: String) -> User {
     }
 }
 
+fn area(dimensions : (u32, u32)) -> u32 {
+    dimensions.0 * dimensions.1
+}
+
+fn area_v2(rectangle : &Rectangle) -> u32{
+    rectangle.length * rectangle.width
+}
