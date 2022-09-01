@@ -1,6 +1,6 @@
 // loop - infinity (break;) or end programm
-// for - more fast and safety (more useful)
-// while - 
+// for - more fast and safety (more useful
+// while - just for allot iterations
 
 
 
