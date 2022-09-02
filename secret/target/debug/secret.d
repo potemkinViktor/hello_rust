@@ -1,0 +1,1 @@
+/Users/viktorpotemkin/Documents/Rust/hello_rust/secret/target/debug/secret: /Users/viktorpotemkin/Documents/Rust/hello_rust/secret/src/lib.rs /Users/viktorpotemkin/Documents/Rust/hello_rust/secret/src/main.rs
