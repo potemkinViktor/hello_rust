@@ -3,8 +3,37 @@
 // while - just for allot iterations
 
 
+#[derive(Debug)] // необходимо для вывода в консоль
+enum UsState {
+    Alabama,
+    Alaska,
+}
 
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter(UsState),
+}
 
+fn value_in_cents(coin: Coin) -> u32 {
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin:: Dime => 10,
+        Coin::Quarter(state) => {
+            println!("State quarter from {:?}!", state);
+            25
+        }
+    }
+}
+
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i + 1),
+    }
+}
 // 8.09 smart contract near
 fn main() {
     // let mut x = 5;
@@ -158,6 +187,26 @@ fn main() {
     route(IpAddrKind::V4);
     route(IpAddrKind::V6);
 
+    let home = IpAddr {
+        kind: IpAddrKind::V4,
+        address: String::from("127.0.0.1"),
+    };
+
+    let loopback = IpAddr {
+        kind: IpAddrKind::V6,
+        address: String::from("::1"),
+    };
+
+    value_in_cents(Coin::Quarter(UsState::Alaska));
+    value_in_cents(Coin::Penny);
+
+    let five = Some(5);
+    let six = plus_one(five);
+    let none = plus_one(None);
+    println!("{}", five.unwrap());
+    println!("{}", six.unwrap());
+    println!("{:?}", none);
+
 }
 
 struct Color(i32, i32, i32);
@@ -184,6 +233,13 @@ enum IpAddrKind {
 }
 
 fn route(ip_type: IpAddrKind) {}
+
+struct IpAddr {
+    kind: IpAddrKind,
+    address: String,
+}
+
+
 
 fn print() {
     println!("MAX_POINTS just out of main visability! {}", MAX_POINTS);
