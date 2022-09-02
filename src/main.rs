@@ -34,6 +34,22 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
         Some(i) => Some(i + 1),
     }
 }
+
+fn doit(coin: Coin) {
+    let mut count = 0;
+
+    // match coin {
+    //     Coin::Quarter(state) =>
+    //         println!("{:?}", state),
+    //     _ => count += 1,
+    // }
+
+    if let Coin::Quarter(state) = coin {
+        println!("{:?}", state);
+    } else { count += 1; }
+
+    println!("count is: {}", count);
+}
 // 8.09 smart contract near
 fn main() {
     // let mut x = 5;
@@ -206,6 +222,24 @@ fn main() {
     println!("{}", five.unwrap());
     println!("{}", six.unwrap());
     println!("{:?}", none);
+
+    // if let в определенных обстоятельствах - упрощение match
+
+    // let some_u8_value = Some(0u8);
+    // match some_u8_value {
+    //     Some(3) => println!("three"),
+    //     _ => ()
+    // }
+
+    // if let Some(3) = some_value {
+    //     println!("three");
+    // }
+
+    doit(Coin::Penny);
+    doit(Coin::Nickel);
+    doit(Coin::Dime);
+    doit(Coin::Quarter(UsState::Alabama));
+    doit(Coin::Quarter(UsState::Alaska));
 
 }
 
