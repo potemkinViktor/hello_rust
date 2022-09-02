@@ -151,6 +151,13 @@ fn main() {
 
     println!("{}", rect1.multiply());
 
+    let rect2 = Rectangle::square(50);
+
+    println!("{}, {}", rect2.length, rect2.multiply());
+
+    route(IpAddrKind::V4);
+    route(IpAddrKind::V6);
+
 }
 
 struct Color(i32, i32, i32);
@@ -165,7 +172,18 @@ impl Rectangle{
     fn multiply(&self) -> u32{
         self.length * self.width
     }
+
+    fn square(size: u32) -> Rectangle {
+        Rectangle { length: size, width: size }
+    }
 }
+
+enum IpAddrKind {
+    V4,
+    V6,
+}
+
+fn route(ip_type: IpAddrKind) {}
 
 fn print() {
     println!("MAX_POINTS just out of main visability! {}", MAX_POINTS);
