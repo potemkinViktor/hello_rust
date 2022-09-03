@@ -258,6 +258,7 @@ fn main() {
 
     println!("{:?}, {}, {:?}", v2, third, four);
 
+    
 }
 
 struct Color(i32, i32, i32);
