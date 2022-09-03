@@ -241,6 +241,23 @@ fn main() {
     doit(Coin::Quarter(UsState::Alabama));
     doit(Coin::Quarter(UsState::Alaska));
 
+    // vector 
+
+    let v: Vec<i32> = Vec::new();
+    println!("{:?}", v);
+
+    let v1 = vec![1, 2, 3];
+    println!("{:?}", v1);
+
+    let mut v2 = vec![1, 2, (3 as u64)];
+    v2.push(4);
+    println!("{:?}", v2);
+
+    let third = &v2[2];
+    let four = &v.get(1); //?????
+
+    println!("{:?}, {}, {:?}", v2, third, four);
+
 }
 
 struct Color(i32, i32, i32);
