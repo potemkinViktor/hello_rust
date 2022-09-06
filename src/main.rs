@@ -86,12 +86,18 @@ fn main() {
     whiles(3, false);
 
     let data = "to string";
+    let stroka1 = data.to_string();
+    let stroka2 = " to string".to_string();
 
-    let stroka = data.to_string();
+    // let stroka3 = &stroka1 + &stroka2;
 
-    let stroka2 = "to string".to_string();
+    println!("{}, {},{}", data, stroka1, stroka2);
 
-    println!("{}, {}, {}", data, stroka, stroka2);
+    let stroka3 = stroka1 + &stroka2;
+
+    // println!("{}, {}, {}", data, stroka1, stroka2); can't use stroka1 after summ, because ownership in stroka3
+
+    println!("{}", stroka3);
 
     //ownership
     let mut s = String::from("hello");
