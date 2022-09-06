@@ -85,6 +85,14 @@ fn main() {
 
     whiles(3, false);
 
+    let data = "to string";
+
+    let stroka = data.to_string();
+
+    let stroka2 = "to string".to_string();
+
+    println!("{}, {}, {}", data, stroka, stroka2);
+
     //ownership
     let mut s = String::from("hello");
     let s1 = s.clone();
@@ -258,7 +266,7 @@ fn main() {
 
     println!("{:?}, {}, {:?}", v2, third, four);
 
-    
+
 }
 
 struct Color(i32, i32, i32);
