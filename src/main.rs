@@ -99,6 +99,21 @@ fn main() {
 
     println!("{}", stroka3);
 
+    let l = "tic".to_string();
+    let l1 = "tac".to_string();
+    let l2 = "tic".to_string();
+
+    let format = format!{"{}-{}-{}", l, l1, l2};
+    println!("{}", format);
+
+    for j in "DHG".chars() {
+        println!("{}", j);
+    }
+
+    for j1 in "DHGDHG".bytes() {
+        println!("{}", j1);
+    }
+
     //ownership
     let mut s = String::from("hello");
     let s1 = s.clone();
@@ -272,6 +287,9 @@ fn main() {
 
     println!("{:?}, {}, {:?}", v2, third, four);
 
+    // hash maps - holding key - value params
+
+    
 
 }
 
