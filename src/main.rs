@@ -289,7 +289,13 @@ fn main() {
 
     // hash maps - holding key - value params
 
-    
+    use std::collections::HashMap;
+
+    let mut scores = HashMap::new();
+    scores.insert(String::from("Blue"), 10);
+    scores.insert(String::from("Green"), 50);
+
+    println!("{:?}", scores);
 
 }
 
