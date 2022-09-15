@@ -294,8 +294,20 @@ fn main() {
     let mut scores = HashMap::new();
     scores.insert(String::from("Blue"), 10);
     scores.insert(String::from("Green"), 50);
-
     println!("{:?}", scores);
+
+    let teams = vec![String::from("Blue"), String::from("Yellow")];
+    let initial_scores = vec![10, 50];
+    let scores2: HashMap<_, _> = teams.iter().zip(initial_scores.iter()).collect();
+    // метод zip создает вектор кортежей, где элементы с одинаковыми индексами создают пары
+    // метод collect создает HashMap
+    println!("{:?}", scores2);
+
+    let field_name = String::from("Color");
+    let field_value = String::from("Blue");
+
+    let mut map
+
 
 }
 
