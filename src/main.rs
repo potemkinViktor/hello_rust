@@ -290,11 +290,16 @@ fn main() {
     // hash maps - holding key - value params
 
     use std::collections::HashMap;
-
+    
     let mut scores = HashMap::new();
     scores.insert(String::from("Blue"), 10);
     scores.insert(String::from("Green"), 50);
     println!("{:?}", scores);
+
+    // метод get используется для получения значений из HashMap
+    let team_name = String::from("Blue");
+    let score = scores.get(&team_name);
+    println!("{}, {:?}", team_name, score);
 
     let teams = vec![String::from("Blue"), String::from("Yellow")];
     let initial_scores = vec![10, 50];
